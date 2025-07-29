@@ -1,0 +1,31 @@
+{% extends "advisor/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Hey {{ user.username }}! The top job roles that matched your skills</h2>
+    <h3 class="mt-4">You can be a great:</h3>
+    
+    <div class="row mt-4">
+        {% for job in jobs %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                {% if job.image %}
+                <img src="{{ job.image.url }}" class="card-img-top" alt="{{ job.title }}">
+                {% else %}
+                <img src="/static/default-image.jpg" class="card-img-top" alt="Default Image">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ job.title }}</h5>
+                    <p class="card-text">{{ job.description|truncatewords:30 }}</p>
+                    <a href="{% url 'job_details' job.id %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p>No jobs found that match your skills. Please update your skills and try again.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

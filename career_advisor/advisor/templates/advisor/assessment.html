@@ -1,0 +1,219 @@
+{% extends "advisor/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Get Started to Discover Yourself!</h2>
+    
+    <!-- Form in a Card -->
+    <div class="card mt-4 mb-2">
+        <div class="card-body">
+            <h4 class="card-title">Please provide your skill level in the following areas to help us recommend the best career paths for you.</h4>
+            
+            <form method="post" class="mt-4">
+                {% csrf_token %}
+
+                <div class="row">
+                    <!-- Database Fundamentals -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>Database Fundamentals</label>
+                        <select name="database_fundamentals" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Computer Architecture -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>Computer Architecture</label>
+                        <select name="computer_architecture" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Distributed Computing Systems -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>Distributed Computing Systems</label>
+                        <select name="distributed_computing_systems" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Cyber Security -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>Cyber Security</label>
+                        <select name="cyber_security" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Networking -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>Networking</label>
+                        <select name="networking" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Software Development -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>Software Development</label>
+                        <select name="software_development" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Programming Skills -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>Programming Skills</label>
+                        <select name="programming_skills" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Project Management -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>Project Management</label>
+                        <select name="project_management" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Computer Forensics Fundamentals -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>Computer Forensics Fundamentals</label>
+                        <select name="computer_forensics_fundamentals" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Technical Communication -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>Technical Communication</label>
+                        <select name="technical_communication" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- AI ML -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>AI ML</label>
+                        <select name="ai_ml" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Software Engineering -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>Software Engineering</label>
+                        <select name="software_engineering" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Business Analysis -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>Business Analysis</label>
+                        <select name="business_analysis" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Communication Skills -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>Communication Skills</label>
+                        <select name="communication_skills" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Data Science -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>Data Science</label>
+                        <select name="data_science" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Troubleshooting Skills -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>Troubleshooting Skills</label>
+                        <select name="troubleshooting_skills" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Graphics Designing -->
+                    <div class="form-group col-md-4 mb-3">
+                        <label>Graphics Designing</label>
+                        <select name="graphics_designing" class="form-control" required>
+                            <option value="">Choose option</option>
+                            {% for value, label in SKILL_LEVEL_CHOICES %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

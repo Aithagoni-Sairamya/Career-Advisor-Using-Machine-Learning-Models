@@ -1,0 +1,174 @@
+{% extends "advisor/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="mock-test-header">
+        <h1>Programming Mock Tests</h1>
+        <p>Practice your programming skills with these comprehensive mock tests</p>
+    </div>
+    
+    <div class="mock-test-grid">
+        <!-- C Programming Card -->
+        <div class="test-card">
+            <div class="card-icon">
+                <span class="language-letter">C</span>
+            </div>
+            <div class="card-content">
+                <h3>C Programming</h3>
+                <p>Test your knowledge of C programming fundamentals, syntax, and problem-solving skills.</p>
+                <a href="http://indiabix.com/online-test/c-programming-test/random" target="_blank">
+                    <button type="button" class="attempt-btn">
+                        Attempt Test
+                        <span class="arrow">→</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <!-- C++ Programming Card -->
+        <div class="test-card">
+            <div class="card-icon">
+                <span class="language-letter">C++</span>
+            </div>
+            <div class="card-content">
+                <h3>C++ Programming</h3>
+                <p>Challenge yourself with object-oriented programming concepts and C++ specific questions.</p>
+                <a href="http://indiabix.com/online-test/cpp-programming-test/random" target="_blank">
+                    <button type="button" class="attempt-btn">
+                        Attempt Test
+                        <span class="arrow">→</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <!-- Java Programming Card -->
+        <div class="test-card">
+            <div class="card-icon">
+                <span class="language-letter">Java</span>
+            </div>
+            <div class="card-content">
+                <h3>Java Programming</h3>
+                <p>Evaluate your Java programming skills with questions on core concepts and best practices.</p>
+                <a href="https://www.indiabix.com/online-test/java-programming-test/random" target="_blank">
+                    <button type="button" class="attempt-btn">
+                        Attempt Test
+                        <span class="arrow">→</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .mock-test-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #2d3748;
+    }
+
+    .mock-test-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .mock-test-header p {
+        color: #718096;
+        font-size: 1.1rem;
+    }
+
+    .mock-test-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .test-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .test-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-icon {
+        width: 80px;
+        height: 80px;
+        background: #f7fafc;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .language-letter {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #4a5568;
+    }
+
+    .card-content {
+        flex: 1;
+    }
+
+    .card-content h3 {
+        color: #2d3748;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .card-content p {
+        color: #718096;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .attempt-btn {
+        background: #4299e1;
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .attempt-btn:hover {
+        background: #3182ce;
+    }
+
+    .arrow {
+        transition: transform 0.2s;
+    }
+
+    .attempt-btn:hover .arrow {
+        transform: translateX(4px);
+    }
+
+    @media (max-width: 768px) {
+        .mock-test-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .mock-test-header h1 {
+            font-size: 2rem;
+        }
+    }
+</style>
+{% endblock %}

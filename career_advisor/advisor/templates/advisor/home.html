@@ -1,0 +1,53 @@
+{% extends "advisor/base.html" %}
+
+{% block content %}
+<section class="hero w-100">
+    <div class="container w-100">
+        <div class="row justify-content-end w-100">
+            <div class="w-50"style="padding-left:120px; padding-top:100px">
+                <div class="hero-header mb-4">
+                    <h2>
+                        Take your decisions
+                        <span class="hero-head">otherwise</span> 
+                        Decisions will take over.
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="about">
+    <div class="container" id="does">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="who" style=>Who <span class="guide" >We Are</span></h2>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="say">
+              <p class="wassup" style="font-weight: 400;font-size: 17px;">Career Guidance is a webpage that offers insights in both life, social and school skills.<br>We strive to give you world class advice on career choices based on
+                interests, IQ(intelligence quotient) as well as a stable position in the days of tomorrow <br> With a team of diversity in culture and ethnicity, we give you access to banks of information from all corners of the
+                globe.<br>We guarantee you a blissful experience as we help you navigate the perilous waters of life on this great journey.<br>Join us and be part of the experience.<br> </p>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="login">
+                <a href="{% url 'assessment' %}">
+                  <button type="button" class="btn btn-dark" id="btns" fdprocessedid="ig9mwo">Get Started!</button>
+                </a>
+              </div>
+              {%else%}
+            <div class="login">
+              <a href="{% url 'login' %}">
+                <button type="button" class="btn btn-dark" id="btns" fdprocessedid="ig9mwo">Let's Begin</button>
+              </a>
+            </div>
+            {%endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+{% endblock %}

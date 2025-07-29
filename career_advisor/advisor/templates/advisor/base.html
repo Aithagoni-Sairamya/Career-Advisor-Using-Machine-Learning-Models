@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Career Navigator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.75) !important;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: rgba(255, 255, 255, 1) !important;
+        }
+
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: white !important;
+            font-weight: bold;
+        }
+
+        .navbar-dark .navbar-nav .dropdown-toggle.active {
+            color: white !important;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #943ee4;">
+        <div class="container">
+            <a class="navbar-brand career" href="{% url 'home' %}" style="margin-left: -100px;" onmouseover="this.style.color='white'" onmouseout="this.style.color='black'">Career Guidance</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">HOME</a>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if request.resolver_match.url_name in 'knowledge_page,assessment,test' %}active{% endif %}" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            SERVICES
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="{% url 'knowledge_page' %}">Knowledge Page</a></li>
+                            <li><a class="dropdown-item" href="{% url 'assessment' %}">Career Prediction</a></li>
+                            <li><a class="dropdown-item" href="{% url 'test' %}">Mock Tests</a></li>
+                        </ul>
+                    </div>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">ABOUT US</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">CONTACT</a>
+                    
+                    
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="nav-link btn btn-link" style="text-decoration: none; color: white;">LOG OUT</button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div style="padding-top: 56px;">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p>&copy; 2025 Career Navigator. All rights reserved.</p>
+            <div>
+                <a href="https://facebook.com" target="_blank" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com" target="_blank" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
+                <a href="https://instagram.com" target="_blank" class="text-white"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

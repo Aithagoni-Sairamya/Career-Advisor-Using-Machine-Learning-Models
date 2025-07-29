@@ -1,0 +1,171 @@
+{% extends "advisor/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4 job-title">{{ job.title }}</h2>
+    <div class="card mt-4 mb-2 shadow-hover" style="border-radius: 12px;">
+        <div class="card-body">
+            <!-- Job Description Section -->
+            <h4 class="mt-4" style="font-family: 'Arial', sans-serif; color: #333; font-weight: bold;">Job Description</h4>
+            <p style="font-family: 'Arial', sans-serif; color: #555;">{{ job.description }}</p>
+
+            <!-- Skills Required Section -->
+            <h4 class="mt-4" style="font-family: 'Arial', sans-serif; color: #333; font-weight: bold;">Skills Required</h4>
+            <ol style="font-family: 'Arial', sans-serif; color: #555;">
+                {% for skill in job.skills_required.splitlines %}
+                <li class="list-item">{{ skill }}</li>
+                {% endfor %}
+            </ol>
+
+            <!-- Educational Requirements Section -->
+            <h4 class="mt-4" style="font-family: 'Arial', sans-serif; color: #333; font-weight: bold;">Educational Requirements</h4>
+            <ol style="font-family: 'Arial', sans-serif; color: #555;">
+                {% for education in job.education_requirements.splitlines %}
+                <li class="list-item">{{ education }}</li>
+                {% endfor %}
+            </ol>
+
+            <!-- Duties and Responsibilities Section -->
+            <h4 class="mt-4" style="font-family: 'Arial', sans-serif; color: #333; font-weight: bold;">Duties and Responsibilities</h4>
+            <ol style="font-family: 'Arial', sans-serif; color: #555;">
+                {% for duty in job.duties.splitlines %}
+                <li class="list-item">{{ duty }}</li>
+                {% endfor %}
+            </ol>
+
+            <!-- Salary Range Section -->
+            <h4 class="mt-4" style="font-family: 'Arial', sans-serif; color: #333; font-weight: bold;">Salary Range</h4>
+            <p style="font-family: 'Arial', sans-serif; color: #555;">₹{{ job.min_salary }} - ₹{{ job.max_salary }}</p>
+
+            <!-- Top Companies Section -->
+            <h4 class="mt-4" style="font-family: 'Arial', sans-serif; color: #333; font-weight: bold;">Top Companies</h4>
+            <ol style="font-family: 'Arial', sans-serif; color: #555;">
+                {% for company in job.companies.splitlines %}
+                <li class="list-item">{{ company }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+        <!-- Previous HTML content -->
+<div class="job-section">
+    <h2>Interview Questions & Answers</h2>
+    <div class="interview-qna">
+        {% if job.interview_qna %}
+            {% for qa in job.interview_qna %}
+                <div class="qa-item">
+                    <div class="question">
+                        <h3>{{ forloop.counter }}. {{ qa.question }}</h3>
+                    </div>
+                    <div class="answer">
+                        <strong>Answer:</strong>
+                        <p>{{ qa.answer }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No interview questions available for this role.</p>
+        {% endif %}
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+<!-- Inline CSS for Transitions, Styling, and Hover Effect -->
+<style>
+        .job-section {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+    }
+    
+    .interview-qna {
+        margin-top: 1rem;
+    }
+    
+    .qa-item {
+        margin-bottom: 2rem;
+        padding: 1rem;
+        border-left: 4px solid #007bff;
+        background-color: white;
+    }
+    
+    .question h3 {
+        color: #333;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+    
+    .answer {
+        margin-top: 0.5rem;
+        padding-left: 1rem;
+    }
+    
+    .answer strong {
+        color: #007bff;
+    }
+    
+    .answer p {
+        margin-top: 0.5rem;
+        line-height: 1.6;
+    }
+
+    .job-title {
+        font-family: 'Arial', sans-serif;
+        font-weight: 700; /* Increased boldness */
+        letter-spacing: 0; /* Removed extra space between letters */
+        color: #007bff;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .card-body h4 {
+        font-family: 'Arial', sans-serif;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .card-body ol li {
+        font-family: 'Arial', sans-serif;
+        color: #555;
+        transition: color 0.3s ease;
+    }
+
+    .card-body ol li:hover {
+        color: #007bff;
+        cursor: pointer;
+    }
+
+    .card {
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Adding padding and spacing for better readability */
+    .card-body {
+        padding: 20px;
+    }
+
+    p, ol {
+        line-height: 1.6;
+    }
+
+    /* Adding a background color to alternate sections for better separation */
+    .card-body h4 {
+        background-color: #f8f9fa;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .card-body p, .card-body ol {
+        margin-top: 10px;
+    }
+</style>
+{% endblock %}

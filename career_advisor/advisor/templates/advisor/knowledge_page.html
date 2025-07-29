@@ -1,0 +1,32 @@
+{% extends 'advisor/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="container mt-5">
+    <h2>Job Roles</h2>
+    <hr>
+
+    <!-- Display job roles in cards -->
+    <div class="row">
+      {% for job in job_roles %}
+        <div class="col-md-4">
+          <div class="card mb-4">
+            {% if job.image %}
+            <img src="{{ job.image.url }}" class="card-img-top" alt="{{ job.title }}">
+        {% else %}
+            <img src="{% static 'default-image.jpg' %}" class="card-img-top" alt="{{ job.title }}">
+        {% endif %}
+                    <div class="card-body">
+              <h5 class="card-title">{{ job.title }}</h5>
+              <p class="card-text">{{ job.short_description }}</p>
+              <a href="{% url 'job_details' job.id %}" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="mt-4">
+      <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+    </div>
+  </div>
+{% endblock %}

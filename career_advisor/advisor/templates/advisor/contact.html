@@ -1,0 +1,67 @@
+{% extends "advisor/base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2>Contact Us</h2>
+    
+    <!-- Introduction Section -->
+    <div class="card mt-4 mb-2">
+        <div class="card-body">
+            <h4>Get in Touch</h4>
+            <p>We would love to hear from you! Whether you have a question, need support, or just want to share your thoughts, we're here to help. Your feedback, suggestions, and queries are important to us and help us improve.</p>
+
+            <h4 class="mt-4">How to Reach Us</h4>
+            <p>You can contact us through the following methods:</p>
+            
+            <h5>Email</h5>
+            <p>For general inquiries, support, or if you need assistance with any of our services, feel free to email us directly at <strong><a href="mailto:support@careeradvisor.com">support@careeradvisor.com</a></strong>. Our team responds within 24 hours.</p>
+
+            <h5>Phone</h5>
+            <p>If you prefer to speak with someone directly, call us at <strong><a href="tel:+911234567890">+91 123 456 7890</a></strong>. We are available Monday through Friday, from 9 AM to 6 PM IST.</p>
+
+            <h5>Office Address</h5>
+            <p>Visit us in person for more personalized support. Our office is located at:</p>
+            <p><strong>Career Advisor</strong><br>1234 Career Lane, Hyderabad, Telangana, India</p>
+            <p>Our office hours are from 9 AM to 6 PM, Monday to Friday. Walk-ins are welcome!</p>
+<hr>
+            <h4 class="mt-4">Follow Us on Social Media</h4>
+            <p>Stay updated with the latest career tips, resources, and news by following us on social media. Join our growing community and get career insights directly in your feed:</p>
+            <div class="d-flex">
+                <a href="https://facebook.com/careeradvisor" class="btn btn-primary" target="_blank" style="margin-right: 50px;">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="https://twitter.com/careeradvisor" class="btn btn-info" target="_blank" style="margin-right: 50px;">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a>
+                <a href="https://linkedin.com/company/careeradvisor" class="btn btn-primary" target="_blank" style="margin-right: 50px;">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+                <a href="https://instagram.com/careeradvisor" class="btn btn-danger" target="_blank" style="margin-right: 50px;">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://youtube.com/c/careeradvisor" class="btn btn-danger" target="_blank">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+            </div>
+            <hr>
+
+            <!-- Frequently Asked Questions Section -->
+            <h4 class="mt-4">Frequently Asked Questions (FAQ)</h4>
+            <p>Before reaching out, you may find an answer to your question in our FAQ section. Here are some common queries from users:</p>
+            <ol>
+                <li><strong>How does Smart Career Advisor work?</strong><br>The Smart Career Advisor uses machine learning algorithms to provide personalized career recommendations based on your academic performance, interests, and job market trends.</li>
+                <li><strong>How do I get career recommendations?</strong><br>To get personalized recommendations, simply fill out a survey on your skills, interests, and preferences. The system will analyze this data and suggest suitable career paths for you.</li>
+                <li><strong>Can I get recommendations for multiple career options?</strong><br>Yes, the system provides multiple career options based on your ratings and interests. You can explore different career roles and select the one that fits your profile.</li>
+                <li><strong>How accurate are the career predictions?</strong><br>The career predictions are powered by advanced machine learning models that analyze vast datasets, ensuring highly accurate and reliable recommendations tailored to your skills.</li>
+                <li><strong>Can I apply for jobs after receiving recommendations?</strong><br>Yes, we provide not only career recommendations but also resume-building assistance, interview preparation, and job search tips to help you land your ideal job.</li>
+                <li><strong>Is the career advice system suitable for non-technical people?</strong><br>Absolutely! The system caters to both technical and non-technical roles. Whether you're interested in management, business, or creative roles, the system provides relevant career paths for all fields.</li>
+            </ol>
+<hr>
+            <!-- Feedback Form Button -->
+            <h4 class="mt-4">Want to Share Your Thoughts?</h4>
+            <p>If you would like to share your thoughts, suggestions, or feedback, you can do so by visiting our <a href="{% url 'feedback' %}" class="btn btn-primary">Feedback Page</a>.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
